@@ -1,0 +1,30 @@
+{%load index%}
+<h1> {{movie.title}} ({{movie.year}}):</h1>
+
+<img src="{{movie.logo}}" alt="">
+
+<h4>Runtime: {{movie.runtime}}</h4>
+<h4>Gross: {{movie.gross}}</h4>
+<strong>IMDb Rating: {{movie.imdb_rating}}</strong>
+<h4>Metascore: {{movie.metascore}}</h4>
+<h4>Genre: {{movie.genre}}</h4>
+<h4>Certificate: {{movie.certificate}}</h4>
+<h4>Director:
+
+    <ul>
+        {%for i in count%}
+        <li> <a href="{%url 'home:dir_detail' dir_link|index:i%}">{{director|index:i}}</a></li>
+        {%endfor%}
+    </ul>
+
+</h4>
+
+<h4>Cast:
+     <ul>
+        {%for i in count1%}
+        <li> <a href="{%url 'home:act_detail' cast_link|index:i%}">{{cast|index:i}}</a></li>
+        {%endfor%}
+    </ul>
+
+</h4>
+

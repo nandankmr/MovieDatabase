@@ -1,0 +1,15 @@
+<h1>Welcome to the homepage of this website!</h1>
+
+<form action="{%url 'home:search'%}" method="get">
+    {%csrf_token%}
+    <input type="text" placeholder="Enter text" name="search">
+    <select name="category" id="">
+        <option value="movie">Movie</option>
+        <option value="director">Director</option>
+        <option value="actor">Actor</option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+
+<h3><a href="{% url 'home:index' 1%}">List of all movies</a></h3>
+<h6><a href="/admin/">admin page</a></h6>

@@ -1,0 +1,20 @@
+{%load index%}
+
+<h1>{{director.name}}</h1>
+<img src="{{director.logo}}" alt=""><br>
+<strong>{{director.profession}}</strong>
+{%if date_of_birth is not None%}
+<h3><strong>Born:</strong> {{director.date_of_birth}} in {{director.birth_place}}</h3>
+{%endif%}
+<h2>Most Popular Movies (Director):</h2>
+
+<ul>
+    {%for j  in i%}
+    {%if dir_movie_links|index:j in movie_links%}
+
+        <li><a href="{%url 'home:detail' dir_movie_links|index:j%}">{{movies|index:j}}</a></li>
+
+    {%endif%}
+    {%endfor%}
+</ul>
+
